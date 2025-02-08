@@ -81,3 +81,4 @@ import jwt form jsonwebtoken
 
 pasword hashing -->
 npm install bcrypt
+npm i dotenv

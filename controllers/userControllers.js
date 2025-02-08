@@ -74,7 +74,7 @@ export function loginUser(req, res) {
                 type: user.type,
             };
 
-            const token = jwt.sign(payload, "secret", { expiresIn: "48h" });
+            const token = jwt.sign(payload, JWT_KEY, { expiresIn: "48h" });
 
             // Step 4: Send the response with the user and token
             res.json({
