@@ -1,0 +1,83 @@
+library management--->
+package manager node -->
+
+npm  init -y ----------node project
+
+ "start": "node index.js"
+
+ strat project -->npm start
+
+ install---express.js--->backend
+
+ continous running --->library--->install nodemon
+
+ 
+ "start": "nodemon index.js"
+
+ npm install bodyparser
+
+
+
+ ___________-----
+ import express from 'express';
+import bodyParser from 'body-parser';
+
+const app=express();
+app.use(bodyParser.json()); // middlware
+
+app.get('/',(req,res)=>{
+    console.log('get request');
+    res.json({
+        message:'Hello World'
+    })
+})
+app.post('/',(req,res)=>{
+    const name=req.body.name;
+    const message="Hi bro"+name
+    console.log('post request');
+    res.json({
+        message:message
+    })
+})
+
+app.listen(5000,(req,res)=>{
+    console.log('Server is running on port 5000');
+})
+_____________________
+
+200--->status code http request 200-299 success request
+400-499 --->
+500-599--->internal error
+
+
+routs------------>app.post("/users/",)
+
+
+<---------------------->
+export and import,
+foldr structure --->(routs),(),()
+
+mongodb database----->
+
+mongodb+srv://tester:<db_password>@cluster0.m9fws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+npm install mongodb
+npm install mongoose
+
+database save, Thisng to be saved in the databse
+customer/adimn
+Admin
+Booking
+rooms
+category
+gallery_enent-->imge, description,
+feedbacks
+Ticket-->inquires
+-----------------------------
+JWT Authentication
+
+npm install jsonwebtoken
+import jwt form jsonwebtoken
+
+
+pasword hashing -->
+npm install bcrypt
