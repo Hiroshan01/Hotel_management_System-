@@ -1,5 +1,18 @@
 import Category from "../models/category.js";
 
+function isAdminValid(req){ // reuse function 
+    if(req.user==null){
+        
+        return false;
+    }
+    if(req.user.type !="admin"){
+       
+        return false;
+    }
+    return true; //if admin
+
+}
+
 export function createCategory(req,res){
     if(req.user==null){
         res.status(401).json({
@@ -83,4 +96,40 @@ export function getCategory(req,res){
         )
     }
    )
+}
+//get categoryby name
+
+export function getCategoryByName(req,res){
+     const name=req.params.name;
+     Category.findOne({name:name}).then(
+        (result)=>{
+           if(result == null){
+             res.json({
+                message:"Category not found"
+             })
+           }else{
+            res.json({
+                category:result
+            })
+           }
+        }
+     ).catch(
+        ()=>{
+            res.status(500).json({
+                message:"Failed to get category"
+            })
+        }
+     )
+}
+
+//update category
+export function updateCategory(){
+
+    if(!isAdminValid(req)){
+        res.status(403).json({
+            message:"Unauthorized"
+        })
+        return
+    }
+    
 }
