@@ -1,17 +1,15 @@
 import Category from "../models/category.js";
 
-function isAdminValid(req){ // reuse function 
-    if(req.user==null){
-        
-        return false;
-    }
-    if(req.user.type !="admin"){
-       
-        return false;
-    }
-    return true; //if admin
 
-}
+ export function isAdminValid(req) {
+    if (!req.user) {
+      return false;
+    }
+    if (req.user.type != "admin") {
+      return false;
+    }
+    return true; // if admin
+  }
 
 export function createCategory(req,res){
     if(req.user==null){
@@ -123,13 +121,26 @@ export function getCategoryByName(req,res){
 }
 
 //update category
-export function updateCategory(){
-
-    if(!isAdminValid(req)){
-        res.status(403).json({
-            message:"Unauthorized"
-        })
-        return
+export function updateCategory(req, res) {
+    if (!isAdminValid(req)) {
+      return res.status(403).json({
+        message: "Unauthorized"
+      });
     }
-    
-}
+  
+    const name = req.params.name;
+    Category.updateOne({ name: name }, req.body)
+      .then(() => {
+        res.json({
+          message: "Category updated successfully"
+        });
+      })
+      .catch(() => {
+        res.json({
+          message: "Failed to update category"
+        });
+      });
+  }
+
+  //delete rooms
+

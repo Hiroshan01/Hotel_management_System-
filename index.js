@@ -6,6 +6,7 @@ import galleryItemRouter from './routes/galleryItemsRoutes.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import categoryRoute from './routes/categoryRoutes.js'
+import roomRoutes from './routes/roomRoutes.js'
 
 dotenv.config()//env file
 
@@ -55,6 +56,7 @@ mongoose.connect(connectionString).then(
 app.use("/api/users",userRouter)
 app.use("/api/gallery",galleryItemRouter)
 app.use("/api/category",categoryRoute)
+app.use("/api/room",roomRoutes)
 
 app.listen(5000,(req,res)=>{
     console.log("Server is running on port no 5000")
