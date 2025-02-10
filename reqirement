@@ -17,3 +17,6 @@ Clients can view available rooms filtered by options
 Gallery with description
 Manage room categories (name, description, price, max guests)
 This appears to be a comprehensive set of requirements for a hotel booking system, covering both client and admin functionality. The system should allow clients to search, book, and view rooms, while giving admins control over managing bookings, rooms, and customer accounts.
+
+
+booking-->booking_id-->(auto increamnt)email,status("pending"|"confirm"|reson()),start_date,ending_date,room_id

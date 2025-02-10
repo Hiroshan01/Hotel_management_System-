@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
 
-dotenv.config()//env file
+dotenv.config() //env file
 
 export function postUsers(req,res){
 
