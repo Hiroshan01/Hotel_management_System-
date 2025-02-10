@@ -8,4 +8,6 @@ galleryItemRouter.post("/",createGalleryItem)
 galleryItemRouter.get("/", getGalleryItems)
 
 
+
+
 export default galleryItemRouter;

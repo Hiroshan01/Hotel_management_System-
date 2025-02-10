@@ -25,4 +25,4 @@ const categorySchema=mongoose.Schema({
     }
 })
 const Category=mongoose.model("Categories",categorySchema)
-export default Category
+export default Category;
