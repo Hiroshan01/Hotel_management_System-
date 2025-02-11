@@ -34,7 +34,12 @@ const bookingSchema=new mongoose.Schema({
     note:{
         type:String,
         default:""
+    },
+    timeStamp: {
+        type: Date,
+        default: Date.now
     }
+    
 })
 const Booking=mongoose.model("booking",bookingSchema)
 export default Booking;
