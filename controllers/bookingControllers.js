@@ -82,6 +82,30 @@ export function  getBooking(req,res){
     }
 
 }
+//get item by booking id
+export function getBookingById(req,res){
+    if(!isAdminValid){
+        return res.json({
+         message:"Unauthorized"
+        })
+    }
+    const bookingId = req.params.bookingId;
+    Booking.findOne({bookingId:bookingId}).then(
+        (result)=>{
+            if(!result){
+                res.json({
+                    message:"Result Not found"
+                })
+            }else{
+                res.json({
+                    message:result
+                })
+            }
+        }
+    )
+
+
+}
 //update function
 export function updateBooking(req,res){
     if(!isAdminValid){
