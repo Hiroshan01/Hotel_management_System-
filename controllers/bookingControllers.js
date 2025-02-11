@@ -127,3 +127,28 @@ export function updateBooking(req,res){
       });
 
 }
+
+
+//delete booking by ID
+export function deleteBookingById(req,res){
+    if(!isAdminValid){
+        return res.json({
+             message:"Unauthorized"
+        })
+    }
+    const bookingId = req.params.bookingId;
+    Booking.findOneAndDelete({bookingId:bookingId}).then(
+        ()=>{
+            res.json({
+                message:"Booking deletion sucessfully"
+            })
+        }
+    ).catch(
+        (err)=>{
+            res.status(500).json({
+                message:"Booking deletion failed"
+            })
+        }
+    )
+
+}
